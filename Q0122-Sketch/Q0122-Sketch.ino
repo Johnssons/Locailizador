@@ -1,39 +1,37 @@
-
 #include <SoftwareSerial.h>
 #include <TinyGPS.h>
+#define pinoRX 9
+#define pinoTX 10
 
-SoftwareSerial serial1(10, 11); // RX, TX
+SoftwareSerial serialGPS(pinoRX,pinoTX); // RX, TX
 TinyGPS gps1;
 const String codPulseira = "1";
+float latitude, longitude;
 void setup() {
-   serial1.begin(9600);
+  pinMode(pinoRX, INPUT);
+  pinMode(pinoTX, OUTPUT);
+   serialGPS.begin(9600);
    Serial.begin(9600);
 }
 
 void loop() {
-  bool recebido = false;
-
-  while (serial1.available()) 
+  bool temInfo = false;
+  while (serialGPS.available())  
   {
-     char cIn = serial1.read();
-     recebido = gps1.encode(cIn);
+    char data = serialGPS.read();
+    Serial.println(data);
+    if(gps1.encode(data))
+    temInfo = true;
   }
-
-  if (recebido) 
+  if (temInfo) 
   {
-     
      //Latitude e Longitude
-     long latitude, longitude;
-     gps1.get_position(&latitude, &longitude);     
-
-     if (latitude != TinyGPS::GPS_INVALID_F_ANGLE && longitude != TinyGPS::GPS_INVALID_F_ANGLE)
-     {
-        Serial.println(codPulseira);
-        Serial.print("La");
-        Serial.print(float(latitude) / 100000, 6);
-        Serial.print("Lo");
-        Serial.print(float(longitude) / 100000, 6);
-     }
+     gps1.f_get_position(&latitude, &longitude);
+        String sLat, sLon;
+        if(latitude != TinyGPS::GPS_INVALID_F_ANGLE && longitude != TinyGPS::GPS_INVALID_F_ANGLE)
+        {
+           Serial.println (codPulseira + "La" + latitude + "Lo" + longitude);
+        } 
   }
-  delay(1000);
+  delay(5000);
 }
