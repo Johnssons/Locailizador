@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pulseira</title>
+
+	<link rel="stylesheet" type="text/css" href="sitePulseira.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body class="imagemFundo"> 
+
+   <div id="container"> 
+   <div id="header">Here Pulseiras
+   <span class = "imagemLogo"></span>
+  </div>
+  
+    <center>
+
+   <div id="menu">   
+    	 <ul>       
+        <li><a href="sitePulseira.html"     class="btn btn-blue">Home           </a></li>    
+        <li><a href="comprarPulsieras.html" class="btn btn-blue">Pulseiras      </a></li>
+        <li><a href="historia.html"         class="btn btn-blue">Nossa História </a></li>
+        <li><a href="cadastro.html"         class="btn btn-blue">Cadastro       </a></li>
+        <li><a href="login.html"            class="btn btn-blue">Logar          </a></li>
+  	</ul> 
+    
+   </div>
+
+   </center>
+
+   <span class = "imagemCarl"></span>
+
+    <div id="cadastro">
+
+      <div class="row">
+    <!-- <form id="form" class="col s12" action="http://localhost:3000/clientes" method="post"> -->
+    <form id="form" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="first_name" id="first_name" type="text" class="validate">
+          <label for="first_name">Primeiro nome</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="last_name" id="last_name" type="text" class="validate">
+          <label for="last_name">Segundo nome</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="email" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+        
+         <div class="row">
+        <div class="input-field col s12">
+          <input name="endereco" id="endereco" type="text" class="validate">
+          <label for="endereco">Endereço</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="password" id="password" type="password" class="validate">
+          <label for="password">Senha</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="password1" type="password" class="validate">
+          <label for="password">Confirmar senha</label>
+        </div>
+      </div>
+        <script type="text/javascript" src="cadastro.js"></script>
+        <input type="submit" name="finalizar" value="Finalizar cadastro" onclick="conferirSenhas()">
+       </form>
+  </div>
+
+
+    </div>
+
+   </div> 
+
+
+
+  
+
+</body>
+</html>

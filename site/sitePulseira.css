@@ -1,0 +1,303 @@
+a
+{
+  font-size: 20px;
+  font-family: arial;
+  text-decoration: none;
+  color: lightskyblue;
+ }
+
+ #menu
+{
+  width: 2000px;
+  height: 55px;
+  position: absolute;
+  text-align: center;
+}
+
+#menu ul
+{
+  list-style: none;
+}
+
+#menu ul li
+{
+  list-style: none;
+}
+
+#menu ul li a
+{
+  float: left;
+  font-size: 25px;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  left: 20%;
+}
+
+#menu ul li a:hover
+{
+   background: royalblue;
+   color:  black;
+   border-radius: 20px;
+}
+
+#header
+{
+  height: 75px;
+  color: white;
+  background-color: royalblue;
+  text-align: center;
+  font-family: arial;
+  font-size: 60px;
+  border-radius: 20px;
+  width: 900px;
+  position: relative;
+  left: 21%;
+}
+
+#container
+{
+  width: 1600px;
+  padding: 5px;
+} 
+
+.btn
+{
+  font-family: arial;
+  font-size:14px;
+  font-weight:600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn:focus, .btn::-moz-focus-inner
+{
+  outline: none;
+  border: none;
+}
+
+.btn-blue
+{
+  background: royalblue;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.btn-blue:hover
+{
+  background: blue;
+  box-shadow:0 1px 0 #0000cc;
+}
+
+.btn-blue:active
+{
+  position:relative;
+  top:5px;
+  box-shadow:none;
+}
+
+.imagemFundo
+{
+	width: 1600px;
+	height: 100%;
+	background-image: url("Imagens/ImagemUpAltasAventuras.jpg");
+}
+
+.imagemCarl
+{
+	background-image: url("Imagens/carl_up.png"); 
+	height : 550px; 
+	width : 150px;
+	position: absolute;
+}
+
+.imagemLogo
+{
+   background-image: url("Imagens/logo.png");
+   height: 75px;
+   width: 80px;
+   position: absolute;
+   left: 20px;
+}
+
+#caixaTexto
+{
+  background-color: royalblue;
+  height: 565px;
+  width: 680px;
+  border-radius: 20px;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 180px;
+  left: 450px;
+  padding: 10px;
+}
+
+p
+{
+  margin-top: 0;
+}
+
+.titulo
+{
+  font-size: 50px;
+}
+
+#cadastro
+{
+  background-color: white;
+  height: 400px;
+  width: 680px;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 180px;
+  left: 450px;
+  padding: 10px;
+}
+
+#login
+{
+  background-color: white;
+  height: 200px;
+  width: 680px;
+  font-size: 20px;
+   position: absolute;
+  top: 180px;
+  left: 450px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#caixaPulseira
+{
+  background-color: white;
+  height: 600px;
+  width: 680px;
+  font-size: 20px;
+  position: absolute;
+  top: 180px;
+  left: 450px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#containerPulseira1
+{
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#containerPulseira2
+{
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  left: 360px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#containerPulseira3
+{
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  font-size: 20px;
+  position: absolute;
+  top: 300px;
+  left: 20px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+#containerPulseira4
+{
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  font-size: 20px;
+  position: absolute;
+  top: 300px;
+  left: 360px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.imagemPulseira1
+{
+  background-image: url("Imagens/pulseira1.jpg"); 
+  position: absolute;
+  height : 110px; 
+  width : 180px;
+}
+
+.imagemPulseira2
+{
+  background-image: url("Imagens/pulseira2.jpg"); 
+  position: absolute;
+  height : 121px; 
+  width : 180px;
+}
+
+.imagemPulseira3
+{
+  background-image: url("Imagens/pulseira3.jpg"); 
+  position: absolute;
+  height : 180px; 
+  width : 180px;
+}
+
+.imagemPulseira4
+{
+  background-image: url("Imagens/pulseira4.png"); 
+  position: absolute;
+  height : 172px; 
+  width : 180px;
+}
+
+#mapa
+{
+  background-color: white;
+  height: 500px;
+  width: 680px;
+  border-radius: 20px;
+  position: absolute;
+  left: 450px;
+  top: 380px;
+  display: none;
+  border: 1px solid black;
+}
+
+#map_canvas 
+{ 
+  height: 80% 
+}
+
+#pulseiras
+{
+  background-color: white;
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  left: 450px;
+  top: 380px;
+  border: 1px solid black;
+}
