@@ -44,7 +44,7 @@ namespace Retransmissor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            String tagDeConexao = "Server=myServerAddress;Database=myDataBase;Uid=myUsername;Pwd=myPassword;";
+            String tagDeConexao = "Server=Regulus;Database=PR118185;Uid=PR118185;Pwd=PR118185;";
             SqlConnection conexao = new SqlConnection(tagDeConexao);
             conexao.Open();
             lblPortaAtual.Text = "Porta atual:" + serialPort1.PortName;
