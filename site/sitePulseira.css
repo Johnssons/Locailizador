@@ -291,13 +291,12 @@ p
   height: 80% 
 }
 
-#pulseiras
+#rastrear
 {
-  background-color: white;
-  height: 40px;
-  width: 100px;
-  position: absolute;
-  left: 450px;
-  top: 380px;
-  border: 1px solid black;
+  display: none;
+}
+
+#rastrearTxt
+{
+  display: none;
 }

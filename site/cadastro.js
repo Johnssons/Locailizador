@@ -46,7 +46,7 @@ $(document).ready(function () {
             endereco: enderecoAEnviar
         };
 
-        $.post("http://localhost:3000/Responsavel", dados,
+        $.post("http://localhost:40000/Responsavel", dados,
         function(data, status){
             if (status=='success')
             {
@@ -64,9 +64,4 @@ $(document).ready(function () {
 
         
       }
-   }
-
-   function cadastrar()
-   {
-
    }

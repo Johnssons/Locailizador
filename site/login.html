@@ -11,7 +11,7 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrgulwyp4SthWUe4cLQcBDPA5EqrQppcw"></script>            
     
 </head>
-<body class="imagemFundo" onload="botarMapa()"> 
+<body class="imagemFundo" onload="colocarMapa()"> 
 
    <div id="container"> 
    <div id="header">Here Pulseiras
@@ -23,7 +23,7 @@
    <div id="menu">   
     	 <ul>       
         <li><a href="sitePulseira.html"     class="btn btn-blue">Home           </a></li>    
-        <li><a href="comprarPulsieras.html" class="btn btn-blue">Pulseiras      </a></li>
+        <li><a href="comprarPulseiras.html" class="btn btn-blue">Pulseiras      </a></li>
         <li><a href="historia.html"         class="btn btn-blue">Nossa História </a></li>
         <li><a href="cadastro.html"         class="btn btn-blue">Cadastro       </a></li>
         <li><a href="login.html"            class="btn btn-blue">Logar          </a></li>
@@ -58,9 +58,17 @@
 </div>  
 <div id="mapa">
   <div id="map_canvas">
-    <div id="pulseiras">
-    </div>
   </div>
-</div> 
+  <div class="row">
+   <form class="col s12">  
+     <div class="input-field col s12">
+
+     <input id="rastrearTxt" type="select" name="comboBox">
+     <button id="rastrear" onclick="marcar()">Rastrear</button>
+
+     </div>
+   </form>
+  </div>
+  </div>
 </body>
 </html>

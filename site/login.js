@@ -2,13 +2,18 @@
      var teste = sessionStorage.getItem("codResponsavel");
      if(teste != "null")
      {
-      $("#logar").append('<button onclick = "sair()">Sair</button>');
+      if(teste != undefined)
+      {
+        $("#logar").append('<button onclick = "sair()">Sair</button>');
+      }
      }
     M.updateTextFields();
   });
 
 function loginResponsavel()
 { 
+    debugger;
+
     var emailAEnviar = document.getElementById('email').value;
     var senha1   = document.getElementById('password').value;
 
@@ -20,7 +25,7 @@ function loginResponsavel()
         senha: senha1
     };
 
-    $.post("http://localhost:3000/Responsavel/login", dados,
+    $.post("http://localhost:40000/Responsavel/login", dados,
     function(data, status){
         if (status=='success')
         {
@@ -52,9 +57,7 @@ function depoisDeLogar(logou)
        document.getElementById('email').value = '';
        document.getElementById('password').value = '';
        $("#logar").append('<button onclick = "sair()">Sair</button>');
-       document.getElementById('mapa').style.display = 'block';    
-       botarMapa();
-       $("#pulseiras").append('<select id="comboBox"><option value="tst">teste</option></select>');
+       tudoVisivel();
     }
 }
 
@@ -64,7 +67,7 @@ function sair()
 	alert("Você não está mais logado!");
 }
 
-function botarMapa() 
+function colocarMapa() 
 {
    var mapOptions =
    {
@@ -76,12 +79,83 @@ function botarMapa()
 
 function marcar()
 {
-   var ponto = new google.maps.LatLng(-25.363882,131.044922);
-   var marker = new google.maps.Marker
-   ({
-         position: ponto,
-         map: map,
-         title:"A pulseira está aqui"
-   
-   });
+   debugger;
+
+   let cordx, cordy;
+
+   let codPulseira = document.getElementById('rastrearTxt').value;
+
+   if(sessionStorage.getItem("codResponsavel") != "null")
+   {
+     var codResponavelLogado = sessionStorage.getItem("codResponsavel");
+   }
+
+   $.post("http://localhost:40000/Pulseira/id", codPulseira,
+    function(data, status)
+    {
+      if(status == 'success')
+      {
+        if(data[0].codResponsavel != undefined)
+        {
+          if(data[0].codResponsavel = codResponavelLogado)
+          {
+            alert("A pulseira é sua");
+ 
+            $.post("http://localhost:40000/Pulseira/cordy", codPulseira,
+            function(data, status)
+            {
+               if(status == 'success')
+              {
+                if(data[0].cordy != undefined)
+                {
+                   alert("A pulseira tem uma cordy!");
+                   cordy = data[0].cordy;
+ 
+                   $.post("http://localhost:40000/Pulseira/cordx", codPulseira,
+                   function(data, status)
+                   {
+                      if(status == 'success')
+                     {
+                       if(data[0].cordx != undefined)
+                       {
+                          alert("A pulseira tem uma cordx!");
+                          cordx = data[0].cordx;
+ 
+                          var ponto = new google.maps.LatLng(cordy, cordx);
+                          var marker = new google.maps.Marker
+                          ({
+                             position: ponto,
+                             map: map,
+                             title:"A pulseira está aqui"
+                          });
+                       }
+                       else
+                       {
+                         alert("Essa pulseira não tem uma cordx!");
+                       }
+                     }
+                   });
+               }
+               else
+               {
+                 alert("Essa pulseira não tem uma cordy!");
+               }
+             }
+           });
+         }
+        }
+        else
+        {
+          alert("Essa pulseira não existe ou não é sua!");
+        }
+      }
+    });
+}
+
+function tudoVisivel()
+{
+  document.getElementById('mapa').style.display = "block";
+  document.getElementById('rastrear').style.display = "block";
+  document.getElementById('rastrearTxt').style.display = "block";
+  colocarMapa();
 }
