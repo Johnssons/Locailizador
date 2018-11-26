@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();         
 const bodyParser = require('body-parser');
-const porta = 40000; //porta padrão
+const porta = 3000; //porta padrão
 const sql = require('mssql');
-const conexaoStr = "Server=regulus.cotuca.unicamp.br;Database=PR118185;User Id=PR118185;Password=PR118185;";
+const conexaoStr = "Server=regulus;Database=PR118185;User Id=PR118185;Password=PR118185;";
 
 //conexao com BD
 sql.connect(conexaoStr)
@@ -61,28 +61,38 @@ rota.post('/Responsavel', (requisicao, resposta) =>{
     const senha = requisicao.body.password;
     const endereco = requisicao.body.endereco.substring(0,100);
     execSQL(`INSERT INTO Responsavel(nome, endereco, senha, email) VALUES('${nome}','${endereco}','${senha}','${email}')`, resposta);
+    let maiorCod = `(SELECT max(codResponsavel) from Responsavel)`;
+    console.log(maiorCod);
+    let ultimoNome = `(SELECT nome from Responsavel where codResponsavel = ${maiorCod})`;
+    if(ultimoNome = nome)
     resposta.end(resposta.json({ mensagem: 'Incluído!'}));
+    else
+    resposta.end(resposta.json({ mensagem: 'Não incluído!'}));
 })
 
 //seleciona um codigo de responsavel
 rota.post('/Responsavel/login', (requisicao, resposta) =>{
-  execSQL('SELECT codResponsavel FROM Responsavel WHERE email = \'' + requisicao.body.email + "\' AND senha = \'" + requisicao.body.senha + "\'" , resposta);
+  execSQL('SELECT CodResponsavel FROM Responsavel WHERE email = \'' + requisicao.body.email + "\' AND senha = \'" + requisicao.body.senha + "\'" , resposta);
 })
 
 //adiciona um usuario
 rota.post('/Usuario', (requisicao, resposta) =>{
-    //const Cod = ultimoUsu++;
-    const nome = requisicao.body.nome.substring(0,50);
-    const codResponsavel = requisicao.body.codResponsavel;
-    execSQL(`INSERT INTO Usuario(codResponsavel, Nome) VALUES(${codResponsavel},'${nome}')`, resposta);
+    const codResponsavel = requisicao.body.responsavel;
+    console.log(`INSERT INTO Usuario VALUES(${codResponsavel})`);
+    execSQL(`INSERT INTO Usuario VALUES(${codResponsavel})`, resposta);
     resposta.end(resposta.json({ mensagem: 'Incluído!'}));
 });
 
 //adiciona uma pulseira
-rota.post('/Pusleira/compra',(requisicao, resposa) =>{
-  const codResponsavel = requisicao.body.codResponsavel;
-  const codUsuario = requisicao.body.codUsuario;
-  let cordx = 0;
-  let cordy = 0;
-  execSQL(`INSERT INTO Pulseira(codUsuario, codResponsavel, cordx, cordy) VALUES(${codUsuario}, '${codResponsavel}', '${cordx}', '${cordy}')`, resposta);
+rota.post('/Pulseira/compra', (requisicao, resposta) =>{
+  const codResponsavel = requisicao.body.responsavel;
+  let codUsuario = `(Select max(CodUsuario) from Usuario)`;
+  execSQL(`INSERT INTO Pulseira(codUsuario, codResponsavel) VALUES(${codUsuario}, ${codResponsavel})`, resposta);
+  resposta.end(resposta.json({ mensagem: 'Incluído!'}));
+});
+
+//seleciona o maior codResponsavel na tabela responsavel
+rota.post('/Responsavel/maior', (requisicao, resposta) =>{
+  execSQL(`SELECT max(CodResponsavel) FROM Responsavel`, resposta);
 })
+
