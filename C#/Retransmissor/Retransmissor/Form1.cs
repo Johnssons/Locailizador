@@ -64,9 +64,9 @@ namespace Retransmissor
             codPulseira = linha.Substring(0, linha.IndexOf('L'));
             latitude = linha.Substring(linha.IndexOf('a') + 1, linha.LastIndexOf('L') - (linha.IndexOf('a')+1));
             longitude = linha.Substring(linha.IndexOf('o') + 1, (linha.Length - 2) - (linha.IndexOf('o')));
-            SqlCommand setLatitude = new SqlCommand("Update Pulseira Set cordx =" + latitude + " where CodPulseira = " + codPulseira, conexao);
+            SqlCommand setLatitude = new SqlCommand("Update Pulseira Set latitude =" + latitude + " where CodPulseira = " + codPulseira, conexao);
             setLatitude.ExecuteNonQuery();
-            SqlCommand setLongitude = new SqlCommand("Update Pulseira Set cordy =" + longitude + "where CodPulseira = " + codPulseira, conexao);
+            SqlCommand setLongitude = new SqlCommand("Update Pulseira Set longitude =" + longitude + "where CodPulseira = " + codPulseira, conexao);
             setLongitude.ExecuteNonQuery();
             serialPort1.Open();
         }

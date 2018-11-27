@@ -32,7 +32,7 @@ alter table Responsavel
 add senha varchar(30) not null
 
 alter table Pulseira
-add cordX varchar(30) not null
+add latitude varchar(30)
 
 alter table Pulseira
-add cordY varchar(30) not null
+add longitude varchar(30)
