@@ -1,0 +1,10 @@
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\bin\Debug\Retransmissor.exe.config
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\bin\Debug\Retransmissor.exe
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\bin\Debug\Retransmissor.pdb
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.csprojResolveAssemblyReference.cache
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.Form1.resources
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.Properties.Resources.resources
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.csproj.GenerateResource.Cache
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.csproj.CoreCompileInputs.cache
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.exe
+C:\Users\joaoa\OneDrive\Área de Trabalho\cotuca\Pratica-Profissional-I-master\C#\Retransmissor\Retransmissor\obj\Debug\Retransmissor.pdb

@@ -30,10 +30,11 @@ namespace Retransmissor
                     serialPort1.PortName = txtPortaNova.Text;
                     serialPort1.Open();
                     serialPort1.Close();
+                    serialPort1.DataReceived += serialPort1_DataReceived;
                     txtPortaNova.Text = "";
                     lblPortaAtual.Text = "Porta atual:" + serialPort1.PortName;
                 }
-                catch (System.IO.IOException)
+                catch (System.UnauthorizedAccessException)
                 {
                     serialPort1.PortName = ultimaPortaValida;
                     txtPortaNova.Text = "";
@@ -44,8 +45,8 @@ namespace Retransmissor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            String tagDeConexao = "Server=Regulus;Database=PR118185;Uid=PR118185;Pwd=PR118185;";
-            SqlConnection conexao = new SqlConnection(tagDeConexao);
+            String tagDeConexao = "Server=regulus.cotuca.unicamp.br;Database=PR118185;Uid=PR118185;Pwd=PR118185;";
+            conexao = new SqlConnection(tagDeConexao);
             conexao.Open();
             lblPortaAtual.Text = "Porta atual:" + serialPort1.PortName;
         }
@@ -59,23 +60,21 @@ namespace Retransmissor
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             string linha = serialPort1.ReadLine();
+            serialPort1.Close();
             codPulseira = linha.Substring(0, linha.IndexOf('L'));
-            latitude = linha.Substring(linha.IndexOf('a') + 1, linha.LastIndexOf('L') - linha.IndexOf('a'));
-            longitude = linha.Substring(linha.IndexOf('o') + 1);
+            latitude = linha.Substring(linha.IndexOf('a') + 1, linha.LastIndexOf('L') - (linha.IndexOf('a')+1));
+            longitude = linha.Substring(linha.IndexOf('o') + 1, (linha.Length - 2) - (linha.IndexOf('o')));
+            SqlCommand setLatitude = new SqlCommand("Update Pulseira Set cordx =" + latitude + " where CodPulseira = " + codPulseira, conexao);
+            setLatitude.ExecuteNonQuery();
+            SqlCommand setLongitude = new SqlCommand("Update Pulseira Set cordy =" + longitude + "where CodPulseira = " + codPulseira, conexao);
+            setLongitude.ExecuteNonQuery();
+            serialPort1.Open();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             serialPort1.Open();
-            timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            SqlCommand setLatitude = new SqlCommand("Update Pulseira Set latitude =" + latitude + "where codigo = " + codPulseira, conexao);
-            setLatitude.ExecuteNonQuery();
-            SqlCommand setLongitude = new SqlCommand("Update Pulseira Set longitude =" + longitude + "where codigo = " + codPulseira, conexao);
-            setLongitude.ExecuteNonQuery();
-        }
     }
 }

@@ -36,38 +36,36 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblPortaAtual = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             label1 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(19, 23);
+            label1.Location = new System.Drawing.Point(25, 28);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(135, 16);
+            label1.Size = new System.Drawing.Size(162, 20);
             label1.TabIndex = 0;
             label1.Text = "Selecione a porta:";
             // 
             // txtPortaNova
             // 
-            this.txtPortaNova.Location = new System.Drawing.Point(22, 42);
+            this.txtPortaNova.Location = new System.Drawing.Point(29, 52);
+            this.txtPortaNova.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPortaNova.MaxLength = 5;
             this.txtPortaNova.Name = "txtPortaNova";
-            this.txtPortaNova.Size = new System.Drawing.Size(132, 20);
+            this.txtPortaNova.Size = new System.Drawing.Size(175, 22);
             this.txtPortaNova.TabIndex = 1;
             // 
             // btnTrocar
             // 
-            this.btnTrocar.Location = new System.Drawing.Point(22, 68);
+            this.btnTrocar.Location = new System.Drawing.Point(29, 84);
+            this.btnTrocar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTrocar.Name = "btnTrocar";
-            this.btnTrocar.Size = new System.Drawing.Size(75, 23);
+            this.btnTrocar.Size = new System.Drawing.Size(100, 28);
             this.btnTrocar.TabIndex = 2;
             this.btnTrocar.Text = "Trocar";
             this.btnTrocar.UseVisualStyleBackColor = true;
@@ -75,11 +73,13 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblPortaAtual});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 164);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 207);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(353, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(471, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -90,30 +90,27 @@
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(22, 115);
+            this.btnIniciar.Location = new System.Drawing.Point(29, 142);
+            this.btnIniciar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(75, 23);
+            this.btnIniciar.Size = new System.Drawing.Size(100, 28);
             this.btnIniciar.TabIndex = 4;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(353, 186);
+            this.ClientSize = new System.Drawing.Size(471, 229);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnTrocar);
             this.Controls.Add(this.txtPortaNova);
             this.Controls.Add(label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -133,7 +130,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblPortaAtual;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 
