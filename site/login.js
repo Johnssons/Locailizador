@@ -77,6 +77,22 @@ function colocarMapa()
    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 }
 
+function colocarMapaComPonto(ponto)
+{
+     var mapOptions =
+   {
+     center: {lat:42.3601, lng:-71.0589},
+     zoom: 8
+   };
+   var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+   var marker = new google.maps.Marker
+   ({
+        position: ponto,
+        map: map,
+        title:"A pulseira está aqui"
+   }); 
+    
+}
 function marcar()
 {
    debugger;
@@ -122,12 +138,8 @@ function marcar()
                           cordx = data[0].cordx;
  
                           var ponto = new google.maps.LatLng(cordy, cordx);
-                          var marker = new google.maps.Marker
-                          ({
-                             position: ponto,
-                             map: map,
-                             title:"A pulseira está aqui"
-                          });
+                          colocarMapaComPonto(ponto);
+                         
                        }
                        else
                        {
